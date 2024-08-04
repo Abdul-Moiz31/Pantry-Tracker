@@ -182,7 +182,7 @@ export default function Home() {
             <HomeIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Pantry Management
+            Pantry Tracker
           </Typography>
           <Button color="inherit" startIcon={<ContactMailIcon />} onClick={handleOpen}>
             Contact Us
