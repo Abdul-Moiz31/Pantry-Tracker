@@ -9,6 +9,10 @@ import {
   AppBar,
   Toolbar,
   IconButton,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { firestore } from "./firebase";
@@ -27,6 +31,10 @@ import {
   Add as AddIcon,
   Home as HomeIcon,
   ContactMail as ContactMailIcon,
+  LinkedIn as LinkedInIcon,
+  GitHub as GitHubIcon,
+  Email as EmailIcon,
+  Code as CodeIcon,
 } from "@mui/icons-material";
 
 const style = {
@@ -176,12 +184,29 @@ export default function Home() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Pantry Management
           </Typography>
-          <Button color="inherit">Sign Up</Button>
-          <Button color="inherit">Sign In</Button>
-          <Button color="inherit" startIcon={<ContactMailIcon />}>
+          <Button color="inherit" startIcon={<ContactMailIcon />} onClick={handleOpen}>
             Contact Us
           </Button>
-         
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Contact Us</DialogTitle>
+            <DialogContent sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+              <IconButton component="a" href="https://www.linkedin.com/in/im-abdulmoiz/" target="_blank" sx={{ color: '#0072b1' }}>
+                <LinkedInIcon />
+              </IconButton>
+              <IconButton component="a" href="https://github.com/Abdul-Moiz31" target="_blank" sx={{ color: '#333' }}>
+                <GitHubIcon />
+              </IconButton>
+              <IconButton component="a" href="mailto:abdulmoiz3140@gmail.com" sx={{ color: '#d44638' }}>
+                <EmailIcon />
+              </IconButton>
+              <IconButton component="a" href="https://leetcode.com/u/Abdul_Moiz1/" target="_blank" sx={{ color: '#FFA116' }}>
+                <CodeIcon />
+              </IconButton>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} sx={{ color: '#0072b1' }}>Close</Button>
+            </DialogActions>
+          </Dialog>
         </Toolbar>
       </AppBar>
       <Box
